@@ -32,7 +32,7 @@ public class CampusDate {
         return new CampusDate(date.withDayOfMonth(day));
     }
 
-    public boolean isSameDay(int day) {
+    public boolean isSameDay(final int day) {
         return date.getDayOfMonth() == day;
     }
 
