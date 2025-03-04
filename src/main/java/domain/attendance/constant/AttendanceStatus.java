@@ -14,6 +14,9 @@ public enum AttendanceStatus {
 
     private final String value;
 
+    private static final AttendanceRule mondayRule = new MondayAttendanceRule();
+    private static final AttendanceRule weekdayRule = new WeekdayAttendanceRule();
+
     AttendanceStatus(String value) {
         this.value = value;
     }
@@ -24,9 +27,9 @@ public enum AttendanceStatus {
 
     private static AttendanceRule getAttendanceRule(final CampusDate date) {
         if (date.getDayOfWeek() == DayOfWeek.MONDAY) {
-            return new MondayAttendanceRule();
+            return mondayRule;
         }
-        return new WeekdayAttendanceRule();
+        return weekdayRule;
     }
 
     public String getValue() {
